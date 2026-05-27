@@ -292,6 +292,216 @@
             .decisions-grid { grid-template-columns: 1fr; }
             .btn { padding: 12px 24px; font-size: 0.9em; }
         }
+
+        /* ── TABS ── */
+        .tab-bar {
+            display: flex;
+            gap: 0;
+            background: #f0f4f8;
+            border-bottom: 2px solid #dee2e6;
+            padding: 0 20px;
+            flex-wrap: wrap;
+        }
+        .tab-btn {
+            padding: 12px 22px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 0.92em;
+            font-weight: 600;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .tab-btn:hover { color: #1e3c72; }
+        .tab-btn.active { color: #11998e; border-bottom-color: #11998e; }
+
+        /* ── CHART ── */
+        .chart-wrap {
+            padding: 25px;
+            background: white;
+        }
+        .chart-title {
+            font-size: 1em;
+            font-weight: 700;
+            color: #1e3c72;
+            margin-bottom: 16px;
+        }
+        .chart-svg-wrap {
+            overflow-x: auto;
+        }
+        .chart-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 14px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.78em;
+            color: #555;
+            cursor: pointer;
+        }
+        .legend-dot {
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* ── JOURNAL ── */
+        .journal-wrap {
+            padding: 25px;
+        }
+        .journal-entry {
+            border: 1px solid #e8ecf0;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+        .journal-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+        }
+        .journal-quarter-badge {
+            background: rgba(255,255,255,0.25);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9em;
+        }
+        .journal-body {
+            padding: 14px 16px;
+            background: white;
+        }
+        .journal-decisions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+        .journal-dec-pill {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.82em;
+            font-weight: 600;
+            background: #e8f5e9;
+            color: #1b5e20;
+            border: 1px solid #a5d6a7;
+        }
+        .journal-event-pill {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.82em;
+            font-weight: 600;
+            border: 1px solid;
+        }
+        .journal-event-neg { background: #fdecea; color: #b71c1c; border-color: #ef9a9a; }
+        .journal-event-pos { background: #e8f5e9; color: #1b5e20; border-color: #a5d6a7; }
+        .journal-impacts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+        .journal-delta {
+            font-size: 0.75em;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+        .journal-no-dec {
+            color: #aaa;
+            font-style: italic;
+            font-size: 0.9em;
+        }
+        .journal-revenue {
+            font-size: 0.82em;
+            color: #666;
+            margin-top: 6px;
+            padding-top: 6px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        /* ── GLOSSAIRE ── */
+        .glossary-wrap {
+            padding: 25px;
+        }
+        .glossary-search {
+            width: 100%;
+            padding: 10px 16px;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            font-size: 0.95em;
+            margin-bottom: 16px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .glossary-search:focus { border-color: #11998e; }
+        .glossary-cats {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .glossary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 14px;
+        }
+        .glossary-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 16px;
+            border-left: 4px solid #11998e;
+            transition: box-shadow 0.2s;
+        }
+        .glossary-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .glossary-term {
+            font-weight: 700;
+            color: #1e3c72;
+            font-size: 0.98em;
+            margin-bottom: 4px;
+        }
+        .glossary-cat-badge {
+            font-size: 0.72em;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+        .glossary-def {
+            font-size: 0.85em;
+            color: #555;
+            line-height: 1.6;
+        }
+        .glossary-link {
+            font-size: 0.78em;
+            color: #11998e;
+            margin-top: 6px;
+            font-style: italic;
+        }
+        .glossary-empty {
+            text-align: center;
+            color: #aaa;
+            padding: 40px;
+            font-size: 0.95em;
+        }
     </style>
 </head>
 <body>
@@ -760,6 +970,71 @@
             }
         };
 
+        const CHART_COLORS = {
+            ca: '#e74c3c', tresorerie: '#27ae60', partMarche: '#2980b9',
+            clients: '#f39c12', salaries: '#8e44ad', productivite: '#16a085',
+            innovation: '#d35400', image: '#2c3e50', competitivite: '#c0392b', endettement: '#7f8c8d'
+        };
+
+        const GLOSSARY = [
+            // ── Management ──
+            { term: 'Décision stratégique', cat: 'management', catLabel: '🏢 Management', def: 'Décision à long terme engageant les ressources majeures de l\'entreprise (fusion, diversification, internationalisation). Prise par la direction générale.', lien: 'Mintzberg, Ansoff' },
+            { term: 'Décision tactique', cat: 'management', catLabel: '🏢 Management', def: 'Décision à moyen terme qui décline la stratégie en plans d\'action (budget marketing, plan de formation). Prise par les managers intermédiaires.', lien: 'Mintzberg' },
+            { term: 'Décision opérationnelle', cat: 'management', catLabel: '🏢 Management', def: 'Décision quotidienne et répétitive visant à gérer l\'activité courante (plannings, réassorts stock). Prise par les managers de proximité.', lien: 'Mintzberg' },
+            { term: 'Finalité de l\'organisation', cat: 'management', catLabel: '🏢 Management', def: 'Raison d\'être profonde de l\'organisation (profit, intérêt général, satisfaction des membres). Distincte des objectifs qui en découlent.', lien: '' },
+            { term: 'Style de direction', cat: 'management', catLabel: '🏢 Management', def: 'Manière dont un dirigeant exerce son autorité : autoritaire, paternaliste, consultatif ou participatif (grille de Blake & Mouton, Likert).', lien: 'Likert, Blake & Mouton' },
+            { term: 'Délégation', cat: 'management', catLabel: '🏢 Management', def: 'Transfert d\'une tâche ou d\'un pouvoir de décision à un subordonné tout en conservant la responsabilité finale. Outil de motivation et d\'efficacité.', lien: '' },
+            { term: 'Management participatif', cat: 'management', catLabel: '🏢 Management', def: 'Style associant les salariés aux décisions pour renforcer l\'adhésion, la créativité et la motivation. Implique confiance et communication.', lien: 'McGregor (théorie Y)' },
+            { term: 'Tableau de bord (TDB)', cat: 'management', catLabel: '🏢 Management', def: 'Outil de pilotage regroupant des indicateurs clés (KPI) permettant de mesurer la performance et d\'orienter les décisions.', lien: 'Balanced Scorecard (Kaplan & Norton)' },
+
+            // ── GRH ──
+            { term: 'GRH – Gestion des RH', cat: 'grh', catLabel: '👥 GRH', def: 'Ensemble des pratiques visant à recruter, former, rémunérer et fidéliser les salariés pour atteindre les objectifs de l\'organisation.', lien: '' },
+            { term: 'Motivation (Herzberg)', cat: 'grh', catLabel: '👥 GRH', def: 'Herzberg distingue facteurs d\'hygiène (évitent l\'insatisfaction : salaire, conditions) et facteurs de motivation (créent la satisfaction : reconnaissance, responsabilités).', lien: 'Herzberg' },
+            { term: 'Pyramide de Maslow', cat: 'grh', catLabel: '👥 GRH', def: 'Hiérarchie des besoins humains : physiologiques → sécurité → appartenance → estime → accomplissement. Un besoin supérieur ne motive que si les inférieurs sont satisfaits.', lien: 'Maslow' },
+            { term: 'QVT – Qualité de vie au travail', cat: 'grh', catLabel: '👥 GRH', def: 'Ensemble des conditions contribuant au bien-être des salariés : environnement, relations, autonomie, sens du travail. Liée à la performance et l\'attractivité.', lien: '' },
+            { term: 'Loi Avenir Professionnel', cat: 'grh', catLabel: '👥 GRH', def: 'Loi de 2018 réformant la formation professionnelle : création du CPF (Compte Personnel de Formation), fusion des OPCA en OPCO, liberté de l\'apprentissage.', lien: 'CPF, OPCO' },
+            { term: 'GPEC', cat: 'grh', catLabel: '👥 GRH', def: 'Gestion Prévisionnelle des Emplois et des Compétences : anticiper les évolutions des métiers pour adapter les effectifs et les compétences à la stratégie.', lien: '' },
+            { term: 'Flex office / Télétravail', cat: 'grh', catLabel: '👥 GRH', def: 'Organisation du travail permettant aux salariés de choisir leur lieu de travail. Améliore la flexibilité mais nécessite des outils numériques et un management adapté.', lien: '' },
+
+            // ── Finance ──
+            { term: 'Trésorerie', cat: 'finance', catLabel: '💰 Finance', def: 'Liquidités disponibles à court terme (encaisse + disponibilités bancaires). Une trésorerie positive est vitale ; négative, elle entraîne un risque de défaut de paiement.', lien: '' },
+            { term: 'Autofinancement', cat: 'finance', catLabel: '💰 Finance', def: 'Financement de l\'investissement par les ressources propres (bénéfices non distribués). Préserve l\'indépendance mais limite les capacités d\'investissement.', lien: 'CAF – Capacité d\'Autofinancement' },
+            { term: 'Emprunt bancaire', cat: 'finance', catLabel: '💰 Finance', def: 'Financement externe contracté auprès d\'une banque. Accroît l\'endettement et engendre des charges d\'intérêt mais permet de financer des investissements importants.', lien: 'Effet de levier financier' },
+            { term: 'Désinvestissement', cat: 'finance', catLabel: '💰 Finance', def: 'Cession d\'actifs non stratégiques pour dégager des liquidités ou recentrer l\'activité sur le cœur de métier.', lien: '' },
+            { term: 'Effet de levier', cat: 'finance', catLabel: '💰 Finance', def: 'La dette amplifie la rentabilité des capitaux propres si le taux de rendement > taux d\'intérêt. Risque accru en cas de baisse d\'activité.', lien: '' },
+            { term: 'BFR – Besoin en Fonds de Roulement', cat: 'finance', catLabel: '💰 Finance', def: 'Besoin de financement du cycle d\'exploitation (stocks + créances clients − dettes fournisseurs). Un BFR élevé fragilise la trésorerie.', lien: '' },
+
+            // ── Marketing ──
+            { term: 'Mix marketing (4P)', cat: 'marketing', catLabel: '📣 Marketing', def: 'Combinaison des 4 variables d\'action commerciale : Produit, Prix, Place (distribution), Promotion (communication). Doit être cohérente avec la cible.', lien: 'McCarthy' },
+            { term: 'Segmentation', cat: 'marketing', catLabel: '📣 Marketing', def: 'Division du marché en groupes homogènes de clients (critères géo, socio-démo, comportementaux) pour adapter l\'offre à chaque segment.', lien: '' },
+            { term: 'Fidélisation (CRM)', cat: 'marketing', catLabel: '📣 Marketing', def: 'Stratégie visant à conserver les clients existants par des programmes de récompense, personnalisation et suivi. Un client fidèle coûte moins cher à conserver qu\'à conquérir.', lien: 'CRM – Customer Relationship Management' },
+            { term: 'Stratégie de prix', cat: 'marketing', catLabel: '📣 Marketing', def: 'Politique de fixation du prix : écrémage (prix élevé → marge forte), pénétration (prix bas → parts de marché), alignement sur la concurrence.', lien: '' },
+            { term: 'Positionnement', cat: 'marketing', catLabel: '📣 Marketing', def: 'Image que l\'entreprise souhaite donner à son offre dans l\'esprit des consommateurs par rapport à la concurrence (différenciation, qualité, prix…).', lien: '' },
+
+            // ── Innovation ──
+            { term: 'Innovation de produit', cat: 'innovation', catLabel: '🔬 Innovation', def: 'Création ou amélioration significative d\'un bien ou service. Peut être incrémentale (amélioration continue) ou de rupture (nouveau paradigme).', lien: 'Schumpeter' },
+            { term: 'Innovation de procédé', cat: 'innovation', catLabel: '🔬 Innovation', def: 'Amélioration des méthodes de production ou de distribution permettant de réduire les coûts ou d\'améliorer la qualité (ex : automatisation, lean management).', lien: '' },
+            { term: 'Open innovation', cat: 'innovation', catLabel: '🔬 Innovation', def: 'Modèle d\'innovation ouvert : l\'entreprise collabore avec des startups, universités, clients ou concurrents pour innover plus vite et à moindre coût.', lien: 'Chesbrough' },
+            { term: 'Transformation numérique', cat: 'innovation', catLabel: '🔬 Innovation', def: 'Intégration des technologies digitales dans tous les processus de l\'entreprise (ERP, IA, cloud, data). Modifie les métiers, l\'organisation et la relation client.', lien: '' },
+            { term: 'Propriété intellectuelle', cat: 'innovation', catLabel: '🔬 Innovation', def: 'Protection juridique des créations : brevet (invention), marque (signe distinctif), droit d\'auteur (œuvre), dessin et modèle. Gérée en France par l\'INPI.', lien: 'INPI' },
+            { term: 'Veille stratégique', cat: 'innovation', catLabel: '🔬 Innovation', def: 'Surveillance systématique de l\'environnement (concurrents, technologies, réglementation, marché) pour anticiper les évolutions et adapter la stratégie.', lien: 'Intelligence économique' },
+
+            // ── Stratégie ──
+            { term: 'Matrice Ansoff', cat: 'strategie', catLabel: '🌍 Stratégie', def: 'Outil d\'analyse des stratégies de croissance : pénétration de marché / extension de marché / développement produit / diversification (selon produit existant/nouveau × marché existant/nouveau).', lien: 'Ansoff' },
+            { term: 'RSE', cat: 'strategie', catLabel: '🌍 Stratégie', def: 'Responsabilité Sociale des Entreprises : intégration volontaire des préoccupations sociales, environnementales et éthiques dans l\'activité et les relations avec les parties prenantes.', lien: 'Triple bottom line' },
+            { term: 'Externalisation (Make or Buy)', cat: 'strategie', catLabel: '🌍 Stratégie', def: 'Décision stratégique de confier à des prestataires externes des activités non essentielles pour réduire les coûts et se concentrer sur le cœur de métier.', lien: '' },
+            { term: 'Alliance stratégique', cat: 'strategie', catLabel: '🌍 Stratégie', def: 'Accord de coopération entre entreprises concurrentes ou complémentaires pour mutualiser ressources et compétences sans fusion. Permet d\'atteindre des marchés inaccessibles seul.', lien: '' },
+            { term: 'Diversification', cat: 'strategie', catLabel: '🌍 Stratégie', def: 'Stratégie consistant à développer de nouveaux produits sur de nouveaux marchés. La plus risquée selon Ansoff mais réduit la dépendance à un seul domaine d\'activité.', lien: 'Ansoff' },
+            { term: 'Parties prenantes (stakeholders)', cat: 'strategie', catLabel: '🌍 Stratégie', def: 'Tout acteur interne ou externe influençant ou influencé par l\'activité de l\'organisation : actionnaires, salariés, clients, fournisseurs, État, ONG.', lien: 'Freeman' },
+            { term: 'Avantage concurrentiel', cat: 'strategie', catLabel: '🌍 Stratégie', def: 'Caractéristique durable permettant à une entreprise de surpasser ses concurrents : domination par les coûts ou différenciation par la qualité / l\'innovation.', lien: 'Porter' },
+            { term: 'Chaîne de valeur (Porter)', cat: 'strategie', catLabel: '🌍 Stratégie', def: 'Modèle décomposant les activités de l\'entreprise en activités principales (logistique, production, vente, SAV) et activités de soutien pour identifier les sources de valeur.', lien: 'Porter' },
+
+            // ── Économie-Droit ──
+            { term: 'Contrat de travail', cat: 'droit', catLabel: '⚖️ Économie-Droit', def: 'Accord entre un employeur et un salarié définissant les conditions d\'emploi (CDI, CDD, intérim). Le lien de subordination est l\'élément central.', lien: 'Code du travail' },
+            { term: 'Financement externe', cat: 'droit', catLabel: '⚖️ Économie-Droit', def: 'Ressources provenant de l\'extérieur : emprunt bancaire, émission d\'actions (augmentation de capital), obligations, crédit-bail, subventions publiques.', lien: 'BPI France' },
+            { term: 'Concurrence et prix', cat: 'droit', catLabel: '⚖️ Économie-Droit', def: 'La loi interdit les ententes illicites sur les prix (art. L420 du Code de commerce). L\'Autorité de la Concurrence veille au bon fonctionnement du marché.', lien: 'Autorité de la Concurrence' },
+        ];
+
         const INITIAL_STATE = {
             quarter: 0,
             totalQuarters: 8,
@@ -815,6 +1090,11 @@
                     return saved ? JSON.parse(saved) : INITIAL_STATE;
                 } catch(e) { return INITIAL_STATE; }
             });
+            const [activeTab, setActiveTab] = useState('decisions');
+            const [glossarySearch, setGlossarySearch] = useState('');
+            const [glossaryCat, setGlossaryCat] = useState('all');
+            const [hiddenLines, setHiddenLines] = useState({});
+
 
             useEffect(() => {
                 localStorage.setItem('chef-entreprise-game', JSON.stringify(gameState));
@@ -940,6 +1220,283 @@
 
             const setFilter = (f) => setGameState(prev => ({ ...prev, activeFilter: f }));
 
+            /* ── CHART (SVG sparklines) ── */
+            const renderChart = () => {
+                const history = gameState.history;
+                const sc = gameState.scenario;
+                if (!sc || history.length === 0) return (
+                    <div style={{padding:'40px',textAlign:'center',color:'#aaa'}}>
+                        Aucune donnée encore — les graphiques apparaîtront après le premier trimestre.
+                    </div>
+                );
+
+                const keys = Object.keys(INDICATOR_META);
+                const quarters = [0, ...history.map(h => h.quarter)];
+                const initialState = sc.initialState;
+
+                // Build series data: initial + each history point
+                const series = {};
+                keys.forEach(k => {
+                    series[k] = [initialState[k], ...history.map(h => h.indicators[k])];
+                });
+
+                const W = Math.max(500, quarters.length * 80);
+                const H = 220;
+                const PAD = { top: 20, right: 20, bottom: 30, left: 40 };
+                const chartW = W - PAD.left - PAD.right;
+                const chartH = H - PAD.top - PAD.bottom;
+
+                const xScale = (i) => (i / (quarters.length - 1)) * chartW;
+                const yScale = (v) => chartH - ((Math.min(Math.max(v, 0), 150) / 150) * chartH);
+
+                const visibleKeys = keys.filter(k => !hiddenLines[k]);
+
+                // Grid lines
+                const gridLines = [0, 25, 50, 75, 100].map(v => ({
+                    y: yScale(v), label: v
+                }));
+
+                return (
+                    <div className="chart-wrap">
+                        <div className="chart-title">📈 Évolution des indicateurs sur les trimestres</div>
+                        <div className="chart-svg-wrap">
+                            <svg width={W} height={H} style={{display:'block'}}>
+                                <g transform={`translate(${PAD.left},${PAD.top})`}>
+                                    {/* Grid */}
+                                    {gridLines.map(({y, label}) => (
+                                        <g key={label}>
+                                            <line x1={0} y1={y} x2={chartW} y2={y} stroke="#f0f0f0" strokeWidth={1}/>
+                                            <text x={-6} y={y+4} textAnchor="end" fontSize="10" fill="#aaa">{label}</text>
+                                        </g>
+                                    ))}
+
+                                    {/* X axis labels */}
+                                    {quarters.map((q, i) => (
+                                        <text key={i} x={xScale(i)} y={chartH + 18} textAnchor="middle" fontSize="10" fill="#888">
+                                            {i === 0 ? 'Départ' : `T${q}`}
+                                        </text>
+                                    ))}
+
+                                    {/* Lines */}
+                                    {keys.filter(k => !hiddenLines[k]).map(k => {
+                                        const pts = series[k];
+                                        const d = pts.map((v, i) => `${i === 0 ? 'M' : 'L'} ${xScale(i)} ${yScale(v)}`).join(' ');
+                                        return (
+                                            <g key={k}>
+                                                <path d={d} fill="none" stroke={CHART_COLORS[k]} strokeWidth={2.5} strokeLinejoin="round" strokeLinecap="round"/>
+                                                {pts.map((v, i) => (
+                                                    <circle key={i} cx={xScale(i)} cy={yScale(v)} r={4} fill={CHART_COLORS[k]}/>
+                                                ))}
+                                            </g>
+                                        );
+                                    })}
+
+                                    {/* Objective line if applicable */}
+                                    {sc.check && (() => {
+                                        // Show a reference at 65 for most indicators
+                                        const refY = yScale(65);
+                                        return (
+                                            <line x1={0} y1={refY} x2={chartW} y2={refY}
+                                                stroke="#ffc107" strokeWidth={1} strokeDasharray="5,4" opacity={0.6}/>
+                                        );
+                                    })()}
+                                </g>
+                            </svg>
+                        </div>
+                        <div className="chart-legend">
+                            {keys.map(k => (
+                                <div key={k} className="legend-item"
+                                     onClick={() => setHiddenLines(prev => ({...prev, [k]: !prev[k]}))}
+                                     style={{opacity: hiddenLines[k] ? 0.35 : 1}}>
+                                    <div className="legend-dot" style={{background: CHART_COLORS[k]}}/>
+                                    <span>{INDICATOR_META[k].icon} {INDICATOR_META[k].label}</span>
+                                </div>
+                            ))}
+                            <div style={{fontSize:'0.75em',color:'#aaa',marginLeft:'auto',alignSelf:'center'}}>Cliquez sur un indicateur pour le masquer</div>
+                        </div>
+                        <div style={{marginTop:'20px'}}>
+                            <div className="chart-title" style={{marginBottom:'12px'}}>📊 Valeurs actuelles</div>
+                            <div className="dashboard">
+                                {Object.keys(INDICATOR_META).map(key => {
+                                    const meta = INDICATOR_META[key];
+                                    const val = gameState.indicators[key];
+                                    const init = sc.initialState[key] || 0;
+                                    const delta = Math.round(val - init);
+                                    const trend = getTrend(key);
+                                    return (
+                                        <div key={key} className={`indicator ${indicatorClass(key, val)}`}>
+                                            <div className="indicator-label">{meta.icon} {meta.label}</div>
+                                            <div className="indicator-value">{Math.round(val)}<small style={{fontSize:'0.45em',color:'#999'}}>{meta.unit}</small></div>
+                                            <span className={`indicator-trend ${trendClass(trend)}`}>{trendLabel(trend)}</span>
+                                            <div style={{fontSize:'0.72em',color: delta >= 0 ? '#28a745' : '#dc3545',marginTop:'3px'}}>
+                                                {delta >= 0 ? '▲' : '▼'} {delta >= 0 ? '+' : ''}{delta} vs départ
+                                            </div>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        </div>
+                    </div>
+                );
+            };
+
+            /* ── JOURNAL ── */
+            const renderJournal = () => {
+                const history = gameState.history;
+                if (history.length === 0) return (
+                    <div style={{padding:'40px',textAlign:'center',color:'#aaa'}}>
+                        Le journal se remplira au fil des trimestres.
+                    </div>
+                );
+                return (
+                    <div className="journal-wrap">
+                        <div className="chart-title">📜 Journal des actions – Tous les trimestres</div>
+                        {[...history].reverse().map(h => {
+                            const prevInd = gameState.scenario?.initialState;
+                            // Compute deltas from previous quarter if possible
+                            const prevH = history.find(x => x.quarter === h.quarter - 1);
+                            const prevState = prevH ? prevH.indicators : gameState.scenario?.initialState;
+
+                            return (
+                                <div key={h.quarter} className="journal-entry">
+                                    <div className="journal-header">
+                                        <span className="journal-quarter-badge">T{h.quarter}</span>
+                                        <span style={{fontWeight:600}}>Trimestre {h.quarter} – {h.quarter <= 4 ? 'Année 1' : 'Année 2'}</span>
+                                        {h.event && (
+                                            <span className={`journal-event-pill ms-auto ${h.event.positive ? 'journal-event-pos' : 'journal-event-neg'}`}
+                                                  style={{marginLeft:'auto'}}>
+                                                {h.event.icon} {h.event.name}
+                                            </span>
+                                        )}
+                                    </div>
+                                    <div className="journal-body">
+                                        {/* Decisions */}
+                                        {h.decisions.length > 0 ? (
+                                            <div>
+                                                <div style={{fontSize:'0.78em',color:'#888',fontWeight:600,marginBottom:'6px',textTransform:'uppercase',letterSpacing:'0.5px'}}>Décisions prises</div>
+                                                <div className="journal-decisions">
+                                                    {h.decisions.map(d => (
+                                                        <span key={d.id} className="journal-dec-pill">
+                                                            {d.icon} {d.name}
+                                                            <span style={{opacity:0.6,fontSize:'0.85em'}}>({d.cost > 0 ? `−${d.cost}` : d.cost < 0 ? `+${Math.abs(d.cost)}` : 'Gratuit'})</span>
+                                                        </span>
+                                                    ))}
+                                                </div>
+                                                {/* Notions */}
+                                                <div style={{display:'flex',flexWrap:'wrap',gap:'5px',marginTop:'6px'}}>
+                                                    {h.decisions.map(d => (
+                                                        <span key={d.id} style={{fontSize:'0.72em',background:'#f0f4f8',color:'#555',padding:'2px 8px',borderRadius:'10px'}}>
+                                                            📚 {d.notion}
+                                                        </span>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        ) : (
+                                            <div className="journal-no-dec">Aucune décision prise ce trimestre.</div>
+                                        )}
+
+                                        {/* Event detail */}
+                                        {h.event && (
+                                            <div style={{marginTop:'10px',padding:'10px',background: h.event.positive ? '#f0fff4' : '#fff5f5',borderRadius:'8px',fontSize:'0.85em',color:'#555'}}>
+                                                <strong>{h.event.positive ? '✅' : '⚠️'} {h.event.name}</strong> — {h.event.description}
+                                            </div>
+                                        )}
+
+                                        {/* Indicator deltas */}
+                                        {prevState && (
+                                            <div style={{marginTop:'10px'}}>
+                                                <div style={{fontSize:'0.78em',color:'#888',fontWeight:600,marginBottom:'5px',textTransform:'uppercase',letterSpacing:'0.5px'}}>Impact sur les indicateurs</div>
+                                                <div className="journal-impacts">
+                                                    {Object.keys(INDICATOR_META).map(k => {
+                                                        const delta = Math.round(h.indicators[k] - prevState[k]);
+                                                        if (delta === 0) return null;
+                                                        const good = INDICATOR_META[k].higherBetter !== false;
+                                                        const isPos = good ? delta > 0 : delta < 0;
+                                                        return (
+                                                            <span key={k} className="journal-delta"
+                                                                  style={{background: isPos ? '#d4edda' : '#f8d7da', color: isPos ? '#155724' : '#721c24'}}>
+                                                                {INDICATOR_META[k].icon} {INDICATOR_META[k].label} {delta > 0 ? '+' : ''}{delta}
+                                                            </span>
+                                                        );
+                                                    })}
+                                                </div>
+                                            </div>
+                                        )}
+
+                                        <div className="journal-revenue">
+                                            💰 Recettes générées ce trimestre : +{h.revenue} · Trésorerie finale : {Math.round(h.indicators.tresorerie)}
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+                );
+            };
+
+            /* ── GLOSSAIRE ── */
+            const renderGlossary = () => {
+                const cats = [
+                    {k:'all', l:'🗂️ Tout'},
+                    {k:'management', l:'🏢 Management'},
+                    {k:'grh', l:'👥 GRH'},
+                    {k:'finance', l:'💰 Finance'},
+                    {k:'marketing', l:'📣 Marketing'},
+                    {k:'innovation', l:'🔬 Innovation'},
+                    {k:'strategie', l:'🌍 Stratégie'},
+                    {k:'droit', l:'⚖️ Éco-Droit'},
+                ];
+                const filtered = GLOSSARY.filter(g => {
+                    const matchCat = glossaryCat === 'all' || g.cat === glossaryCat;
+                    const q = glossarySearch.toLowerCase();
+                    const matchSearch = !q || g.term.toLowerCase().includes(q) || g.def.toLowerCase().includes(q) || (g.lien && g.lien.toLowerCase().includes(q));
+                    return matchCat && matchSearch;
+                });
+                const catColors = {
+                    management: '#1e3c72', grh: '#27ae60', finance: '#2980b9',
+                    marketing: '#e67e22', innovation: '#8e44ad', strategie: '#16a085', droit: '#c0392b'
+                };
+                return (
+                    <div className="glossary-wrap">
+                        <div className="chart-title">📚 Glossaire – Notions STMG Management & Économie-Droit</div>
+                        <input
+                            className="glossary-search"
+                            placeholder="🔍 Rechercher une notion, un auteur, un sigle…"
+                            value={glossarySearch}
+                            onChange={e => setGlossarySearch(e.target.value)}
+                        />
+                        <div className="glossary-cats">
+                            {cats.map(({k, l}) => (
+                                <button key={k}
+                                        className={`filter-btn${glossaryCat === k ? ' active' : ''}`}
+                                        onClick={() => setGlossaryCat(k)}>{l}</button>
+                            ))}
+                        </div>
+                        {filtered.length === 0 ? (
+                            <div className="glossary-empty">Aucune notion trouvée pour "{glossarySearch}".</div>
+                        ) : (
+                            <div className="glossary-grid">
+                                {filtered.map((g, i) => (
+                                    <div key={i} className="glossary-card"
+                                         style={{borderLeftColor: catColors[g.cat] || '#11998e'}}>
+                                        <div className="glossary-term">{g.term}</div>
+                                        <div className="glossary-cat-badge"
+                                             style={{background: catColors[g.cat] + '22', color: catColors[g.cat] || '#333'}}>
+                                            {g.catLabel}
+                                        </div>
+                                        <div className="glossary-def">{g.def}</div>
+                                        {g.lien && <div className="glossary-link">→ Auteur·s / repère : {g.lien}</div>}
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                        <div style={{marginTop:'20px',color:'#aaa',fontSize:'0.8em',textAlign:'center'}}>
+                            {filtered.length} notion{filtered.length > 1 ? 's' : ''} affichée{filtered.length > 1 ? 's' : ''}
+                        </div>
+                    </div>
+                );
+            };
+
             /* ── Score ── */
             const calculateScore = () => {
                 const f = gameState.indicators;
@@ -1036,6 +1593,11 @@
                             </div>
                             <div style={{marginTop:'30px',color:'#888',fontSize:'0.9em'}}>
                                 💡 Jouez les 4 scénarios pour couvrir l'ensemble du programme Management STMG
+                            </div>
+                            <div style={{marginTop:'20px'}}>
+                                <button className="btn btn-secondary" onClick={()=>{
+                                    setGameState(prev=>({...prev, phase:'glossary_standalone'}));
+                                }}>📚 Consulter le Glossaire STMG</button>
                             </div>
                         </div>
                     </div>
@@ -1165,7 +1727,7 @@
                             </div>
                         </div>
 
-                        {/* Tableau de bord */}
+                        {/* Tableau de bord compact */}
                         <div className="dashboard">
                             {Object.keys(INDICATOR_META).map(key => {
                                 const meta = INDICATOR_META[key];
@@ -1181,6 +1743,21 @@
                             })}
                         </div>
 
+                        {/* Onglets */}
+                        <div className="tab-bar">
+                            {[
+                                {k:'decisions', l:'⚡ Décisions'},
+                                {k:'dashboard', l:'📈 Tableau de bord'},
+                                {k:'journal',   l:'📜 Journal'},
+                                {k:'glossary',  l:'📚 Glossaire'},
+                            ].map(({k,l}) => (
+                                <button key={k} className={`tab-btn${activeTab===k?' active':''}`}
+                                        onClick={()=>setActiveTab(k)}>{l}</button>
+                            ))}
+                        </div>
+
+                        {/* Contenu onglet Décisions */}
+                        {activeTab === 'decisions' && (
                         <div className="game-phase">
                             <h3 className="phase-title">⚡ Décisions – Trimestre {gameState.quarter}</h3>
 
@@ -1253,26 +1830,27 @@
                                     Valider le trimestre {gameState.quarter} →
                                 </button>
                             </div>
-
-                            {/* Historique */}
-                            {gameState.history.length > 0 && (
-                                <div style={{marginTop:'30px'}}>
-                                    <h4 style={{color:'#1e3c72',marginBottom:'12px'}}>📜 Historique des décisions</h4>
-                                    <div className="history-timeline">
-                                        {[...gameState.history].reverse().map(h => (
-                                            <div key={h.quarter} className="history-item">
-                                                <span className="history-quarter">T{h.quarter}</span>
-                                                <div>
-                                                    {h.decisions.map(d => <span key={d.id} style={{marginRight:'8px',fontWeight:'600'}}>{d.icon} {d.name}</span>)}
-                                                    {h.event && <span style={{color:'#e74c3c',marginLeft:'6px'}}>⚡ {h.event.name}</span>}
-                                                    <div style={{color:'#888',marginTop:'3px'}}>Recettes du trimestre : +{h.revenue}</div>
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            )}
                         </div>
+                        )}
+
+                        {/* Contenu onglet Tableau de bord */}
+                        {activeTab === 'dashboard' && renderChart()}
+
+                        {/* Contenu onglet Journal */}
+                        {activeTab === 'journal' && renderJournal()}
+
+                        {/* Contenu onglet Glossaire */}
+                        {activeTab === 'glossary' && renderGlossary()}
+
+                        {/* Boutons de navigation quand hors décisions */}
+                        {activeTab !== 'decisions' && (
+                            <div className="action-buttons">
+                                <button className="btn btn-secondary" onClick={backToScenarios}>← Menu</button>
+                                <button className="btn btn-primary" onClick={()=>setActiveTab('decisions')}>
+                                    ⚡ Retour aux décisions
+                                </button>
+                            </div>
+                        )}
                     </div>
                 );
             }
@@ -1465,8 +2043,25 @@
 
                             <div className="action-buttons">
                                 <button className="btn btn-secondary" onClick={backToScenarios}>← Choisir un autre scénario</button>
+                                <button className="btn" style={{background:'#1e3c72',color:'white'}} onClick={()=>{setActiveTab('journal');setGameState(prev=>({...prev,phase:'playing',quarter:9}));}}>📜 Voir le journal</button>
                                 <button className="btn btn-primary" onClick={resetGame}>🔄 Rejouer ce scénario</button>
                             </div>
+                        </div>
+                    </div>
+                );
+            }
+
+            /* GLOSSAIRE STANDALONE */
+            if (gameState.phase === 'glossary_standalone') {
+                return (
+                    <div className="game-container">
+                        <div className="game-header">
+                            <h1>🏢 Chef d'Entreprise</h1>
+                            <p>Glossaire des notions STMG</p>
+                        </div>
+                        {renderGlossary()}
+                        <div className="action-buttons">
+                            <button className="btn btn-primary" onClick={backToScenarios}>← Retour aux scénarios</button>
                         </div>
                     </div>
                 );
