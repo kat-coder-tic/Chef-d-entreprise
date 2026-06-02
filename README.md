@@ -1,4 +1,3 @@
-[README.md](https://github.com/user-attachments/files/28295086/README.md)
 # 🏢 Chef d'Entreprise : Stratégie & Management
 
 ## Serious Game pédagogique pour STMG – Management, Économie-Droit
@@ -45,9 +44,18 @@ Les élèves apprennent à :
 1. **Choix du scénario** – contexte, difficulté, objectif à atteindre
 2. **Diagnostic initial** – analyse SWOT de l'entreprise avant de jouer
 3. **8 trimestres de décisions** – 3 décisions maximum par trimestre, contrainte de trésorerie
-4. **Événements aléatoires** – 55 à 65 % de probabilité par trimestre selon le scénario
+4. **Événements aléatoires** – 55 à 65 % de probabilité par trimestre selon le scénario, atténués si les bonnes décisions préventives ont été prises (système de résilience)
 5. **Rapport de mi-parcours** – bilan à mi-jeu avec recommandations automatiques
-6. **Bilan final** – score sur 4 dimensions + objectif atteint ou non + questions de débriefing
+6. **Bilan final** – score sur 4 dimensions détaillé + objectif atteint ou non + questions de débriefing
+
+**Mécaniques avancées** :
+
+- **Cooldowns** – chaque décision prise est indisponible pendant 2 trimestres : impossible de répéter la même stratégie en boucle, la diversification est obligatoire
+- **Effets différés 💫** – certaines décisions (Formation, R&D, Transformation numérique, RSE…) continuent d'agir le trimestre suivant, matérialisant l'idée d'investissement à long terme
+- **Résilience aux crises 🛡️** – avoir pris des décisions préventives récentes (ex. Transformation numérique) atténue l'impact des événements liés (ex. cyberattaque)
+- **Variabilité des impacts** – les effets des décisions varient légèrement (±1 à 2 pts) pour casser la prévisibilité mécanique
+- **Conseils contextuels** – alertes automatiques selon la situation (trésorerie critique, salariés démotivés, retard sur l'objectif…)
+- **Barres de progression objectif** – suivi visuel en temps réel de l'avancement vers chaque indicateur-cible
 
 ---
 
