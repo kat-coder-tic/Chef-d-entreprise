@@ -1,8 +1,8 @@
 # 🏢 Chef d'Entreprise : Stratégie & Management
 
-## Serious Game pédagogique pour STMG – Management, Économie-Droit
+## Jeu pédagogique pour STMG – Management, Économie-Droit
 
-Un serious game interactif conçu pour les classes de **Terminale et Première STMG**, couvrant les grandes thématiques du programme de **Management** :
+Un jeu pédagogique interactif conçu pour les classes de **Terminale et Première STMG**, couvrant les grandes thématiques du programme de **Management** :
 
 - **Thème : La direction et l'animation des organisations** – finalités, styles de direction, décision
 - **Thème : La mobilisation des ressources humaines** – recrutement, formation, motivation, conditions de travail

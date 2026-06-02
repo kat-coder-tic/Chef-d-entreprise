@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fiche de révisions – Chef d'Entreprise STMG</title>
+<style>
+  /* ── GÉNÉRAL ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 10.5pt;
+    color: #1a1a2e;
+    background: #f5f5f5;
+    padding: 12px;
+  }
+
+  /* ── MISE EN PAGE IMPRESSION ── */
+  @media print {
+    body { background: white; padding: 0; font-size: 9.5pt; }
+    .page { box-shadow: none; margin: 0; border-radius: 0; }
+    .no-print { display: none !important; }
+    .page-break { page-break-before: always; }
+  }
+
+  .page {
+    background: white;
+    max-width: 210mm;
+    margin: 0 auto 20px;
+    padding: 14mm 12mm 12mm;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    border-radius: 4px;
+  }
+
+  /* ── EN-TÊTE ── */
+  .header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    border-bottom: 3px solid #1e3c72;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+    gap: 12px;
+  }
+  .header-left h1 {
+    font-size: 15pt;
+    color: #1e3c72;
+    font-weight: 900;
+    line-height: 1.1;
+  }
+  .header-left p {
+    font-size: 8.5pt;
+    color: #666;
+    margin-top: 3px;
+  }
+  .header-right {
+    font-size: 8pt;
+    color: #888;
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .header-right .eleve-field {
+    border-bottom: 1px solid #ccc;
+    min-width: 140px;
+    display: inline-block;
+    margin-left: 6px;
+  }
+
+  /* ── GRILLE 2 COLONNES ── */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+  }
+  .full-width { grid-column: 1 / -1; }
+
+  /* ── BLOCS THÉMATIQUES ── */
+  .bloc {
+    border-radius: 6px;
+    padding: 8px 10px;
+    border-left: 4px solid;
+  }
+  .bloc-title {
+    font-size: 9pt;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .bloc ul { padding-left: 14px; }
+  .bloc li { margin-bottom: 3px; line-height: 1.4; }
+  .bloc li strong { font-weight: 700; }
+
+  /* Couleurs par thème */
+  .t-management { border-color: #1e3c72; background: #f0f4ff; }
+  .t-management .bloc-title { color: #1e3c72; }
+
+  .t-grh { border-color: #27ae60; background: #f0fff4; }
+  .t-grh .bloc-title { color: #1a7a40; }
+
+  .t-finance { border-color: #2980b9; background: #eff8ff; }
+  .t-finance .bloc-title { color: #1a5f8a; }
+
+  .t-marketing { border-color: #e67e22; background: #fff8f0; }
+  .t-marketing .bloc-title { color: #b36218; }
+
+  .t-innovation { border-color: #8e44ad; background: #faf0ff; }
+  .t-innovation .bloc-title { color: #6c2f8b; }
+
+  .t-strategie { border-color: #16a085; background: #f0fffc; }
+  .t-strategie .bloc-title { color: #0e6d5a; }
+
+  .t-auteurs { border-color: #c0392b; background: #fff5f5; }
+  .t-auteurs .bloc-title { color: #962d22; }
+
+  .t-quiz { border-color: #f39c12; background: #fffbf0; }
+  .t-quiz .bloc-title { color: #b37a0e; }
+
+  /* ── TABLEAUX COMPACTS ── */
+  table { width: 100%; border-collapse: collapse; font-size: 8.5pt; margin-top: 4px; }
+  th {
+    background: rgba(0,0,0,0.08);
+    padding: 4px 6px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 8pt;
+  }
+  td { padding: 3px 6px; border-bottom: 1px solid rgba(0,0,0,0.07); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+
+  /* ── BADGES ── */
+  .badge {
+    display: inline-block;
+    padding: 1px 7px;
+    border-radius: 20px;
+    font-size: 7.5pt;
+    font-weight: 700;
+    margin-right: 3px;
+  }
+  .badge-strat  { background: #e74c3c; color: white; }
+  .badge-tact   { background: #f39c12; color: white; }
+  .badge-oper   { background: #27ae60; color: white; }
+
+  /* ── SÉPARATEUR ── */
+  .sep { border: none; border-top: 1px dashed #ccc; margin: 10px 0; }
+
+  /* ── ZONE À COMPLÉTER ── */
+  .fill-zone {
+    border: 1px dashed #aaa;
+    border-radius: 4px;
+    padding: 5px 8px;
+    min-height: 28px;
+    margin-top: 5px;
+    background: #fafafa;
+    font-size: 8pt;
+    color: #999;
+  }
+
+  /* ── AUTOCOLLANT "À RETENIR" ── */
+  .retenir {
+    background: #fff8c4;
+    border: 1.5px solid #f39c12;
+    border-radius: 5px;
+    padding: 5px 9px;
+    font-size: 8pt;
+    margin-top: 6px;
+    line-height: 1.45;
+  }
+  .retenir strong { color: #b37a0e; }
+
+  /* ── BOUTON IMPRESSION ── */
+  .print-btn {
+    display: block;
+    margin: 14px auto;
+    padding: 10px 28px;
+    background: #1e3c72;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 11pt;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+  }
+  .print-btn:hover { background: #162d58; }
+
+  /* ── NOTE DE BAS DE PAGE ── */
+  .footer {
+    text-align: center;
+    font-size: 7.5pt;
+    color: #bbb;
+    margin-top: 10px;
+    border-top: 1px solid #eee;
+    padding-top: 6px;
+  }
+</style>
+</head>
+<body>
+
+<button class="print-btn no-print" onclick="window.print()">🖨️ Imprimer la fiche</button>
+
+<!-- ═══════════════════════════════════════ PAGE 1 ═══════════════════════════════════════ -->
+<div class="page">
+
+  <div class="header">
+    <div class="header-left">
+      <h1>🏢 Chef d'Entreprise — Fiche de révisions</h1>
+      <p>Management &amp; Économie-Droit · Terminale / Première STMG</p>
+    </div>
+    <div class="header-right">
+      Nom : <span class="eleve-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><br>
+      Classe : <span class="eleve-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><br>
+      Scénario joué : <span class="eleve-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- MANAGEMENT : TYPES DE DÉCISIONS -->
+  <div class="bloc t-management full-width" style="margin-bottom:9px;">
+    <div class="bloc-title">🏢 Management — Les types de décisions (Mintzberg)</div>
+    <table>
+      <thead><tr><th>Type</th><th>Horizon</th><th>Qui décide ?</th><th>Exemples dans le jeu</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="badge badge-strat">Stratégique</span></td>
+          <td>Long terme (2–5 ans)</td>
+          <td>Direction générale (PDG)</td>
+          <td>R&amp;D, Alliance stratégique, Diversification, Transformation numérique</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-tact">Tactique</span></td>
+          <td>Moyen terme (1–2 ans)</td>
+          <td>Managers intermédiaires</td>
+          <td>Campagne marketing, Plan de formation, Externalisation, Autofinancement</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-oper">Opérationnelle</span></td>
+          <td>Court terme (quotidien)</td>
+          <td>Managers de proximité</td>
+          <td>Plan de recrutement, Revalorisation salariale, Service client</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="retenir"><strong>À retenir :</strong> Plus une décision est stratégique, plus elle engage des ressources importantes et est difficile à reverser. Le tableau de bord permet de piloter les conséquences de ces décisions.</div>
+  </div>
+
+  <div class="grid-2" style="margin-bottom:9px;">
+
+    <!-- GRH -->
+    <div class="bloc t-grh">
+      <div class="bloc-title">👥 GRH — Ressources Humaines</div>
+      <table>
+        <thead><tr><th>Notion</th><th>L'essentiel</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Recrutement</strong></td><td>Identifier, sélectionner et intégrer de nouveaux collaborateurs selon les besoins (GPEC).</td></tr>
+          <tr><td><strong>Formation (Herzberg)</strong></td><td>Loi Avenir Pro 2018 : CPF (Compte Personnel Formation), financement via OPCO. Facteur de motivation intrinsèque.</td></tr>
+          <tr><td><strong>Motivation (Maslow)</strong></td><td>Pyramide : besoins physiologiques → sécurité → appartenance → estime → accomplissement.</td></tr>
+          <tr><td><strong>Herzberg</strong></td><td>Facteurs d'<em>hygiène</em> (évitent l'insatisfaction : salaire, sécurité) ≠ facteurs de <em>motivation</em> (créent la satisfaction : reconnaissance, responsabilités).</td></tr>
+          <tr><td><strong>QVT</strong></td><td>Qualité de Vie au Travail : conditions physiques, autonomie, sens du travail. Améliore performance et attractivité.</td></tr>
+          <tr><td><strong>Télétravail / Flex office</strong></td><td>Flexibilité du lieu de travail. Nécessite outils numériques et management adapté.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- FINANCE -->
+    <div class="bloc t-finance">
+      <div class="bloc-title">💰 Finance — Financement &amp; Gestion</div>
+      <table>
+        <thead><tr><th>Notion</th><th>L'essentiel</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Trésorerie</strong></td><td>Liquidités disponibles. Trésorerie &lt; 0 = risque de défaillance. À surveiller chaque trimestre.</td></tr>
+          <tr><td><strong>Autofinancement</strong></td><td>Financement par les bénéfices (CAF). Préserve l'indépendance mais limite les investissements.</td></tr>
+          <tr><td><strong>Emprunt bancaire</strong></td><td>Financement externe. Accroît l'endettement et les charges d'intérêt. Risque si CA baisse.</td></tr>
+          <tr><td><strong>Effet de levier</strong></td><td>La dette amplifie la rentabilité si taux de rendement &gt; taux d'intérêt. Dangereux si activité chute.</td></tr>
+          <tr><td><strong>Désinvestissement</strong></td><td>Cession d'actifs non stratégiques pour dégager des liquidités et recentrer l'activité.</td></tr>
+          <tr><td><strong>BFR</strong></td><td>Besoin en Fonds de Roulement = stocks + créances − dettes fournisseurs. BFR élevé → tension de trésorerie.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <div class="grid-2" style="margin-bottom:9px;">
+
+    <!-- MARKETING -->
+    <div class="bloc t-marketing">
+      <div class="bloc-title">📣 Marketing (Mercatique)</div>
+      <table>
+        <thead><tr><th>Notion</th><th>L'essentiel</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Mix marketing 4P</strong></td><td>Produit · Prix · Place (distribution) · Promotion (communication). Doit être cohérent.</td></tr>
+          <tr><td><strong>Segmentation</strong></td><td>Diviser le marché en groupes homogènes (critères géo, socio-démo, comportementaux).</td></tr>
+          <tr><td><strong>Fidélisation (CRM)</strong></td><td>Conserver les clients existants coûte moins cher qu'en conquérir de nouveaux. Programmes de récompense, personnalisation.</td></tr>
+          <tr><td><strong>Stratégie prix</strong></td><td>Écrémage (prix élevé → marge forte) / Pénétration (prix bas → parts de marché) / Alignement.</td></tr>
+          <tr><td><strong>Positionnement</strong></td><td>Image voulue dans l'esprit des consommateurs vs la concurrence (qualité, prix, innovation…).</td></tr>
+          <tr><td><strong>Satisfaction client</strong></td><td>SAV, délais, réclamations. Un client insatisfait communique 10× plus qu'un client satisfait.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- INNOVATION -->
+    <div class="bloc t-innovation">
+      <div class="bloc-title">🔬 Innovation &amp; Numérique</div>
+      <table>
+        <thead><tr><th>Notion</th><th>L'essentiel</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Types d'innovation (Schumpeter)</strong></td><td>Produit · Procédé · Organisation · Commercial · Social. Incrémentale (amélioration) ou de rupture (nouveau paradigme).</td></tr>
+          <tr><td><strong>Open innovation (Chesbrough)</strong></td><td>Collaborer avec startups, universités, clients pour innover plus vite et à moindre coût.</td></tr>
+          <tr><td><strong>Transformation numérique</strong></td><td>Intégration du digital dans tous les processus (ERP, IA, cloud). Modifie les métiers et la relation client.</td></tr>
+          <tr><td><strong>Propriété intellectuelle</strong></td><td>Brevet (invention, 20 ans), marque, droit d'auteur, dessin/modèle. Géré par l'INPI en France.</td></tr>
+          <tr><td><strong>Veille stratégique</strong></td><td>Surveillance continue de l'environnement (concurrents, technos, réglementation) pour anticiper.</td></tr>
+          <tr><td><strong>R&amp;D</strong></td><td>Recherche &amp; Développement. Investissement à long terme → avantage concurrentiel durable.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <div class="footer">Chef d'Entreprise – Serious Game STMG · Page 1/2</div>
+</div>
+
+<!-- ═══════════════════════════════════════ PAGE 2 ═══════════════════════════════════════ -->
+<div class="page page-break">
+
+  <div class="header">
+    <div class="header-left">
+      <h1>🏢 Chef d'Entreprise — Fiche de révisions (suite)</h1>
+      <p>Management &amp; Économie-Droit · Terminale / Première STMG</p>
+    </div>
+    <div class="header-right">
+      Nom : <span class="eleve-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- STRATÉGIE -->
+  <div class="bloc t-strategie full-width" style="margin-bottom:9px;">
+    <div class="bloc-title">🌍 Stratégie d'entreprise</div>
+    <div class="grid-2">
+      <table>
+        <thead><tr><th>Outil / Notion</th><th>L'essentiel</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Matrice Ansoff</strong></td><td>4 stratégies de croissance : <em>Pénétration</em> (produit existant / marché existant) · <em>Extension marché</em> · <em>Développement produit</em> · <em>Diversification</em> (la plus risquée).</td></tr>
+          <tr><td><strong>Avantage concurrentiel (Porter)</strong></td><td>Domination par les coûts (produire moins cher) ou Différenciation (offre unique). À maintenir dans le temps.</td></tr>
+          <tr><td><strong>Chaîne de valeur (Porter)</strong></td><td>Activités principales (production, vente, SAV) + activités de soutien (RH, tech, achats). Identifier les sources de valeur.</td></tr>
+          <tr><td><strong>Alliance stratégique</strong></td><td>Accord entre entreprises complémentaires ou concurrentes pour mutualiser ressources sans fusion.</td></tr>
+        </tbody>
+      </table>
+      <table>
+        <thead><tr><th>Outil / Notion</th><th>L'essentiel</th></tr></thead>
+        <tbody>
+          <tr><td><strong>RSE</strong></td><td>Responsabilité Sociale des Entreprises : intégrer les préoccupations sociales et environnementales. Triple bottom line : économique, social, environnemental.</td></tr>
+          <tr><td><strong>Externalisation (Make or Buy)</strong></td><td>Confier des activités secondaires à des prestataires externes → réduire les coûts et se concentrer sur le cœur de métier.</td></tr>
+          <tr><td><strong>Parties prenantes (Freeman)</strong></td><td>Tout acteur influençant ou influencé par l'organisation : actionnaires, salariés, clients, fournisseurs, État, ONG.</td></tr>
+          <tr><td><strong>Diversification</strong></td><td>Nouveaux produits sur de nouveaux marchés. Réduit la dépendance mais risque maximal selon Ansoff.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="retenir" style="margin-top:7px;"><strong>À retenir :</strong> La stratégie engage l'entreprise sur le long terme. Elle doit concilier les attentes des parties prenantes (salariés, clients, actionnaires) et tenir compte des contraintes financières (trésorerie, endettement).</div>
+  </div>
+
+  <!-- AUTEURS CLÉS -->
+  <div class="bloc t-auteurs full-width" style="margin-bottom:9px;">
+    <div class="bloc-title">📖 Auteurs clés à connaître</div>
+    <div class="grid-3">
+      <table>
+        <tbody>
+          <tr><td><strong>Mintzberg</strong></td><td>Niveaux de décision (stratégique / tactique / opérationnel). Rôles du manager.</td></tr>
+          <tr><td><strong>Ansoff</strong></td><td>Matrice de croissance : pénétration, extension, développement, diversification.</td></tr>
+          <tr><td><strong>Porter</strong></td><td>5 forces concurrentielles. Avantage concurrentiel. Chaîne de valeur.</td></tr>
+        </tbody>
+      </table>
+      <table>
+        <tbody>
+          <tr><td><strong>Maslow</strong></td><td>Pyramide des besoins : de la survie à l'accomplissement de soi.</td></tr>
+          <tr><td><strong>Herzberg</strong></td><td>Facteurs d'hygiène (insatisfaction) vs facteurs de motivation (satisfaction).</td></tr>
+          <tr><td><strong>Schumpeter</strong></td><td>Innovation et "destruction créatrice". 5 types d'innovation.</td></tr>
+        </tbody>
+      </table>
+      <table>
+        <tbody>
+          <tr><td><strong>Freeman</strong></td><td>Théorie des parties prenantes (stakeholders).</td></tr>
+          <tr><td><strong>Chesbrough</strong></td><td>Open Innovation : ouvrir la R&amp;D vers l'extérieur.</td></tr>
+          <tr><td><strong>Likert / McGregor</strong></td><td>Styles de direction. Théorie X (autoritaire) vs Théorie Y (participatif).</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- QUIZ AUTO-TEST -->
+  <div class="bloc t-quiz full-width" style="margin-bottom:9px;">
+    <div class="bloc-title">✏️ Auto-test — Complète sans regarder tes notes</div>
+    <div class="grid-2">
+      <div>
+        <p style="font-size:8.5pt; margin-bottom:5px;">1. Cite les 3 niveaux de décision et donne un exemple de chacun :</p>
+        <div class="fill-zone">Écris ici…</div>
+        <p style="font-size:8.5pt; margin:7px 0 5px;">2. Quelle est la différence entre autofinancement et emprunt bancaire ? Quel est l'avantage de chacun ?</p>
+        <div class="fill-zone">Écris ici…</div>
+        <p style="font-size:8.5pt; margin:7px 0 5px;">3. Explique la théorie de Herzberg sur la motivation.</p>
+        <div class="fill-zone">Écris ici…</div>
+      </div>
+      <div>
+        <p style="font-size:8.5pt; margin-bottom:5px;">4. Quelles sont les 4 cases de la matrice Ansoff ? Laquelle est la plus risquée ?</p>
+        <div class="fill-zone">Écris ici…</div>
+        <p style="font-size:8.5pt; margin:7px 0 5px;">5. Qu'est-ce que la RSE ? Donne deux exemples de pratiques RSE vues dans le jeu.</p>
+        <div class="fill-zone">Écris ici…</div>
+        <p style="font-size:8.5pt; margin:7px 0 5px;">6. Qu'est-ce qu'un avantage concurrentiel selon Porter ? Cite deux façons de l'obtenir.</p>
+        <div class="fill-zone">Écris ici…</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RETOUR SUR LA PARTIE -->
+  <div class="bloc t-quiz full-width">
+    <div class="bloc-title">🎮 Retour sur ma partie</div>
+    <div class="grid-2">
+      <div>
+        <p style="font-size:8.5pt; margin-bottom:4px;"><strong>Scénario joué :</strong></p>
+        <div class="fill-zone" style="min-height:18px;"></div>
+
+        <p style="font-size:8.5pt; margin:6px 0 4px;"><strong>Les 3 décisions qui ont eu le plus d'impact :</strong></p>
+        <div class="fill-zone">1.<br>2.<br>3.</div>
+
+        <p style="font-size:8.5pt; margin:6px 0 4px;"><strong>Un événement imprévu et comment j'y ai réagi :</strong></p>
+        <div class="fill-zone">Écris ici…</div>
+      </div>
+      <div>
+        <p style="font-size:8.5pt; margin-bottom:4px;"><strong>Mon score final et ce qu'il mesure :</strong></p>
+        <div class="fill-zone">/100 — parce que…</div>
+
+        <p style="font-size:8.5pt; margin:6px 0 4px;"><strong>Ce que je ferais différemment :</strong></p>
+        <div class="fill-zone">Écris ici…</div>
+
+        <p style="font-size:8.5pt; margin:6px 0 4px;"><strong>3 notions du cours que j'ai comprises grâce au jeu :</strong></p>
+        <div class="fill-zone">1.<br>2.<br>3.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">Chef d'Entreprise – Serious Game STMG · Page 2/2 · À conserver pour les révisions</div>
+</div>
+
+<button class="print-btn no-print" onclick="window.print()">🖨️ Imprimer la fiche</button>
+
+</body>
+</html>
